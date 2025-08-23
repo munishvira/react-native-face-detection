@@ -1,97 +1,124 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Face Landmark Detection App
 
-# Getting Started
+A React Native app demonstrating **real-time face landmark and contour detection** using [VisionCamera](https://github.com/mrousavy/react-native-vision-camera) and [VisionCameraFaceDetector](https://github.com/luicfrr/react-native-vision-camera-face-detector).  
+The app tracks facial landmarks to estimate **eye openness, mouth movements, and head orientation** for detecting states like drowsiness, distraction, and talking.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 🚀 Features
+- Real-time face detection with landmarks & contours  
+- Detects:
+  - 👁️ Eye closure (drowsiness detection)  
+  - 👀 Head pose (distraction detection)  
+  - 👄 Mouth activity (talking & yawning detection)  
+- Threshold-based detection logic (easily configurable)  
+- Works on both iOS & Android  
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🎥 Demo
+👉 *(Add GIFs / Demo Video links here, e.g. YouTube, Loom, or `.gif`)*  
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
+## 🧩 Tech Stack
+- [React Native](https://reactnative.dev/) 
+- [VisionCamera](https://github.com/mrousavy/react-native-vision-camera/)  
+- [VisionCameraFaceDetector](https://github.com/luicfrr/react-native-vision-camera-face-detector)
+
+---
+
+## 🧠 Detection Logic
+The app checks facial features frame by frame:  
+- **Drowsy** 💤 → Eyes remain closed for a short duration.  
+- **Yawning** 😴 → Mouth opens wide and stays that way briefly.  
+- **Talking** 🗣️ → Lips move repeatedly in smaller motions.  
+- **Distracted** 👀 → Head is turned away from the center too far.  
+
+---
+
+## 🌍 Use Cases
+
+This app can be adapted for multiple scenarios beyond driver safety. Some examples:
+
+### 1. 🚗 Driver Monitoring
+- Detects if a driver is **drowsy** or **distracted**.  
+- Can trigger alerts to improve road safety.
+
+### 2. 🧑‍💻 Remote Work & Productivity
+- Monitor **attention span** during online classes or meetings.  
+- Identify if the user is distracted from the screen.
+
+### 3. 🧑‍⚕️ Healthcare & Wellness
+- Track **fatigue levels** for patients.  
+- Monitor **sleepiness signs** in individuals at risk of sleep disorders.
+
+### 4. 🎮 Interactive Applications
+- Enable **gesture-based interactions** in games.  
+- Talking or yawning can be used as **controls/inputs**.
+
+### 5. 📱 Accessibility
+- Assist users with limited mobility by using **facial gestures** to trigger commands.  
+- Example: mouth open = "select", head turn = "next".
+
+### 6. 🎬 Content Creation
+- Can be used for **face-driven animations**.  
+- Talking detection can sync with avatars or lip-sync models.
+
+---
+
+
+## 🛠️ Installation
+
+### Prerequisites
+- Node.js >= 16  
+- React Native >= 0.72  
+- Xcode (for iOS) / Android Studio (for Android)  
+- CocoaPods (for iOS dependencies)
+
+### Steps
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/face-landmark-app.git
+cd face-landmark-app
+
+# Install dependencies
+yarn install
+
+# iOS setup
+cd ios && pod install && cd ..
+
+# Start Metro bundler
 yarn start
+
+# Run on device/emulator
+yarn ios   # for iOS
+yarn android   # for Android
 ```
+---
 
-## Step 2: Build and run your app
+## ✨ Future Ideas
+- Add sound/vibration alerts  
+- Support multiple faces at once  
+- Store activity logs  
+- AI-driven fatigue prediction  
+- Integration with AR/VR apps  
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
+## 💡 About the Author
 
-### Android
+👨‍💻 **Munish Vira**  
+Senior Software Engineer | React Native Specialist | 4+ years experience  
 
-```sh
-# Using npm
-npm run android
+- 💼 4+ years experience in **React Native, React, Next.js**  
+- 🚀 Scaled apps to **1,000+ concurrent users** with **40% performance boost**  
+- 📱 Expert in **animations, in-app purchases, analytics, and cross-platform scaling**  
 
-# OR using Yarn
-yarn android
-```
+📧 Email: [munishvira1999@gmail.com](mailto:munishvira1999@gmail.com)  
+🔗 LinkedIn: [linkedin.com/in/munish-vira](https://www.linkedin.com/in/munish-vira)  
+💻 GitHub: [github.com/munishvira](https://github.com/munishvira)  
+🌐 Portfolio: [munishvira.github.io](https://munishvira.github.io)  
 
-### iOS
+## ⚡ Feel free to fork, improve, or use this as a starter for your own reels-like project!
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
