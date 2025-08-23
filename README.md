@@ -17,7 +17,11 @@ The app tracks facial landmarks to estimate **eye openness, mouth movements, and
 ---
 
 ## 🎥 Demo
-👉 *(Add GIFs / Demo Video links here, e.g. YouTube, Loom, or `.gif`)*  
+
+
+https://github.com/user-attachments/assets/cf0fc9b6-fbae-4ad4-835d-fcf7ad3ea018
+
+
 
 ---
 
