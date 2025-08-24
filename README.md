@@ -83,8 +83,8 @@ This app can be adapted for multiple scenarios beyond driver safety. Some exampl
 ### Steps
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/face-landmark-app.git
-cd face-landmark-app
+git clone https://github.com/munishvira/react-native-face-detection.git
+cd FaceLandmarksTS
 
 # Install dependencies
 yarn install
